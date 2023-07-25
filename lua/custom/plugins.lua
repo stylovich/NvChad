@@ -90,15 +90,6 @@ local plugins = {
   },
 
   {
-    "ThePrimeagen/refactoring.nvim",
-    init = require("core.utils").lazy_load "refactoring.nvim",
-    dependencies = {
-      { "nvim-lua/plenary.nvim" },
-      { "nvim-treesitter/nvim-treesitter" },
-    },
-  },
-
-  {
     "NvChad/nvim-colorizer.lua",
     enabled = false,
   },
@@ -122,11 +113,6 @@ local plugins = {
     config = function()
       require("hlchunk").setup {}
     end,
-  },
-
-  {
-    "kevinhwang91/nvim-bqf",
-    lazy = false,
   },
 
   {
