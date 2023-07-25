@@ -2,8 +2,8 @@
 local M = {}
 
 M.ui = {
-  theme = "github_light",
-  theme_toggle = { "bearded-arc", "github_light" },
+  theme = "everforest",
+  theme_toggle = { "everforest", "github_light" },
   transparency = false,
   lsp_semantic_tokens = true,
   nvdash = { load_on_startup = false },

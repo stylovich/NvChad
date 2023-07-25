@@ -1,5 +1,3 @@
--- example file i.e lua/custom/init.lua
-
 _G.utils_g = {}
 
 utils_g.log = function(msg, hl, name)
