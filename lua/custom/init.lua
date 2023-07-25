@@ -1,5 +1,3 @@
--- vim.g.vscode_snippets_path = "~/.config/Code/User/snippets"
-
 local opt = vim.opt
 
 -- opt.colorcolumn = "120" -- Line length marker
