@@ -101,19 +101,19 @@ M.diffview = {
 M.copilot = {
   n = {
     ["<leader>cp"] = {
-      "<cmd> Copilot<CR>",
-      "Copilot",
+      "<cmd> Copilot panel<CR>",
+      "Copilot Panel",
       opts = { noremap = true, nowait = true, silent = true },
     },
     ["<leader>cd"] = {
       "<cmd> Copilot disable<CR>",
       "Copilot disable", --
-      opts = { noremap = true, nowait = true, silent = true },
+      opts = { noremap = true, nowait = true, silent = false },
     },
     ["<leader>ce"] = {
       "<cmd> Copilot enable<CR>",
       "Copilot enable",
-      opts = { noremap = true, nowait = true, silent = true },
+      opts = { noremap = true, nowait = true, silent = false },
     },
   },
 }

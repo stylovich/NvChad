@@ -16,8 +16,13 @@ local plugins = {
   },
 
   {
-    "github/copilot.vim",
+    "zbirenbaum/copilot.lua",
     lazy = false,
+    cmd = "Copilot",
+    event = "InsertEnter",
+    config = function()
+      require("copilot").setup(overrides.copilot)
+    end,
   },
 
   {
