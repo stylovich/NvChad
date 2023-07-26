@@ -19,6 +19,17 @@ end
 --   settings = { documentFormatting = false }
 -- }
 
+-- Add a separate setup for eslint with eslint.run set to "off"
+lspconfig.eslint.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+  settings = {
+    eslint = {
+      run = "off", -- Change this to "onSave" or "onType" to enable eslint diagnostics again
+    },
+  },
+}
+
 -- Disable virtual_text since it's redundant due to lsp_lines.
 vim.diagnostic.config {
   virtual_text = false,
