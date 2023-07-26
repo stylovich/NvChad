@@ -184,6 +184,10 @@ local plugins = {
       }
     end,
   },
+  {
+    "kevinhwang91/nvim-bqf",
+    lazy = false,
+  },
 }
 
 return plugins
