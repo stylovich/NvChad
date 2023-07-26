@@ -38,24 +38,25 @@ local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 null_ls.setup {
   debug = false,
   debounce = 150,
-  save_after_format = true,
+  save_after_format = false,
   sources = sources,
   on_attach = function(client, bufnr)
     if client.supports_method "textDocument/formatting" then
       vim.api.nvim_clear_autocmds { group = augroup, buffer = bufnr }
-      vim.api.nvim_create_autocmd("BufWritePre", {
-        group = augroup,
-        buffer = bufnr,
-        callback = function()
-          -- on 0.8, you should use vim.lsp.buf.format({ bufnr = bufnr }) instead
-          -- if vim.g.vim_version < 8 then
-          if vim.version().minor < 8 then
-            vim.lsp.buf.formatting_sync()
-          else
-            vim.lsp.buf.format { bufnr = bufnr }
-          end
-        end,
-      })
+      -- uncomment below if you want to autoformat on save
+      -- vim.api.nvim_create_autocmd("BufWritePre", {
+      --   group = augroup,
+      --   buffer = bufnr,
+      --   callback = function()
+      --     -- on 0.8, you should use vim.lsp.buf.format({ bufnr = bufnr }) instead
+      --     -- if vim.g.vim_version < 8 then
+      --     if vim.version().minor < 8 then
+      --       vim.lsp.buf.formatting_sync()
+      --     else
+      --       vim.lsp.buf.format { bufnr = bufnr }
+      --     end
+      --   end,
+      -- })
     end
   end,
 }

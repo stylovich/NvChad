@@ -166,7 +166,7 @@ local plugins = {
         pattern = [[\b(KEYWORDS):]], -- ripgrep regex
       },
     },
-    config = function(_, opts)
+      config = function(_, opts)
       require("todo-comments").setup(opts)
     end,
   },
