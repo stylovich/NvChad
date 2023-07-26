@@ -13,6 +13,11 @@ M.treesitter = {
     "markdown_inline",
     "go",
     "python",
+    "yaml",
+    "json",
+    "bash",
+    "dockerfile",
+    "toml",
   },
   indent = {
     enable = true,
@@ -51,9 +56,6 @@ M.mason = {
     "css-lsp",
     "html-lsp",
     "typescript-language-server",
-
-    -- ansiblel
-    "ansible-language-server",
 
     -- formatting
     "prettierd",
