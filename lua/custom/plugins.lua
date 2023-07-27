@@ -17,9 +17,8 @@ local plugins = {
 
   {
     "zbirenbaum/copilot.lua",
-    lazy = false,
-    cmd = "Copilot",
     event = "InsertEnter",
+    cmd = "Copilot",
     config = function()
       require("copilot").setup(overrides.copilot)
     end,
@@ -27,7 +26,7 @@ local plugins = {
 
   {
     "zbirenbaum/copilot-cmp",
-    lazy = false,
+    event = "InsertEnter",
     config = function()
       require("copilot_cmp").setup()
     end,
