@@ -1,15 +1,36 @@
 local overrides = require "custom.configs.overrides"
 
 local plugins = {
+  -- {
+  --   "rmagatti/auto-session",
+  --   lazy = false,
+  --   config = function()
+  --     require("auto-session").setup {
+  --       log_level = "error",
+  --       auto_session_suppress_dirs = { "~/", "~/Projects", "~/Downloads", "/" },
+  --       cwd_change_handling = {
+  --         restore_upcoming_session = true,
+  --       },
+  --     }
+  --   end,
+  -- },
+
   {
-    "rmagatti/auto-session",
+    "charludo/projectmgr.nvim",
     lazy = false,
     config = function()
-      require("auto-session").setup {
-        log_level = "error",
-        auto_session_suppress_dirs = { "~/", "~/Projects", "~/Downloads", "/" },
-        cwd_change_handling = {
-          restore_upcoming_session = true,
+      require("projectmgr").setup {
+        autogit = {
+          enabled = false,
+          command = "git pull --ff-only",
+        },
+        reopen = false,
+        session = { enabled = true, file = "Session.vim" },
+        shada = { enabled = false, file = "main.shada" },
+        scripts = {
+          enabled = false,
+          file_startup = "startup.sh",
+          file_shutdown = "shutdown.sh",
         },
       }
     end,
@@ -176,6 +197,6 @@ local plugins = {
       }
     end,
   },
-  }
+}
 
 return plugins

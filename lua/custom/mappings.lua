@@ -37,6 +37,11 @@ M.general = {
       "<cmd> qa! <CR>",
       "Force quit all windows",
       opts = { noremap = true, nowait = true, silent = true },
+    },
+    ["<leader>fp"] = {
+      "<cmd> ProjectMgr <CR>",
+      "Open Project Manager",
+      opts = { noremap = true, nowait = true, silent = true },
     }
   },
 
