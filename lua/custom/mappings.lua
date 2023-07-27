@@ -28,14 +28,14 @@ M.general = {
       "Show current line Git commit information",
       opts = { noremap = true, nowait = true, silent = true },
     },
-    ["<leader>q"] = {
+    ["<leader>x"] = {
       "<cmd> q <CR>",
       "Quit current window",
       opts = { noremap = true, nowait = true, silent = true },
     },
-    ["<leader>qq"] = {
+    ["<leader>q"] = {
       "<cmd> qa! <CR>",
-      "Quit all windows",
+      "Force quit all windows",
       opts = { noremap = true, nowait = true, silent = true },
     }
   },
