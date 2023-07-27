@@ -127,7 +127,7 @@ M.todo_comments = {
 
 M.copilot = {
   panel = {
-    enabled = true,
+    enabled = false, 
     auto_refresh = false,
     keymap = {
       jump_prev = "[[",
@@ -142,7 +142,7 @@ M.copilot = {
     },
   },
   suggestion = {
-    enabled = true,
+    enabled = false,
     auto_trigger = true,
     debounce = 75,
     always_show = false,
