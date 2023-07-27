@@ -199,4 +199,9 @@ M.copilot = {
   server_opts_overrides = {},
 }
 
+M.scrollbar = {
+
+}
+
+
 return M
