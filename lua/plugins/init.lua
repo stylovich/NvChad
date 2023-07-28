@@ -235,7 +235,11 @@ local default_plugins = {
 
   {
     "nvim-telescope/telescope.nvim",
-    dependencies = "nvim-treesitter/nvim-treesitter",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "debugloop/telescope-undo.nvim",
+      "nvim-treesitter/nvim-treesitter",
+    },
     cmd = "Telescope",
     init = function()
       require("core.utils").load_mappings "telescope"

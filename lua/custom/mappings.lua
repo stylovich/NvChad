@@ -42,6 +42,11 @@ M.general = {
       "<cmd> ProjectMgr <CR>",
       "Open Project Manager",
       opts = { noremap = true, nowait = true, silent = true },
+    },
+    ["<leader>u"] = {
+      "<cmd> Telescope undo <CR>",
+      "Open Telescope undo",
+      opts = { noremap = true, nowait = true, silent = true },
     }
   },
 
