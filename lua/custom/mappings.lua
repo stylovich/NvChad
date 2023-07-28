@@ -28,7 +28,7 @@ M.general = {
       "Show current line Git commit information",
       opts = { noremap = true, nowait = true, silent = true },
     },
-    ["<leader>qx"] = {
+    ["<leader>qq"] = {
       "<cmd> q <CR>",
       "Quit current window",
       opts = { noremap = true, nowait = true, silent = true },
@@ -36,11 +36,6 @@ M.general = {
     ["<leader>qa"] = {
       "<cmd> qa! <CR>",
       "Force quit all windows",
-      opts = { noremap = true, nowait = true, silent = true },
-    },
-    ["<leader>fp"] = {
-      "<cmd> ProjectMgr <CR>",
-      "Open Project Manager",
       opts = { noremap = true, nowait = true, silent = true },
     },
     ["<leader>u"] = {
