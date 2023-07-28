@@ -43,7 +43,7 @@ M.general = {
       "Open Telescope undo",
       opts = { noremap = true, nowait = true, silent = true },
     },
-    -- ctrl + av page
+
     ["<C-PageUp>"] = {
       "<cmd> bnext <CR>",
       "Next buffer",
