@@ -166,14 +166,6 @@ local plugins = {
   },
 
   {
-    "matbme/JABS.nvim", -- Jump to any buffer with few keystrokes
-    event = "BufRead",
-    config = function()
-      require "custom.configs.jabs"
-    end,
-  },
-
-  {
     "booperlv/nvim-gomove", -- Move/Duplicate lines and blocks of code around
     event = "BufRead",
     config = function()

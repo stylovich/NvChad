@@ -115,7 +115,19 @@ M.lspconfig = {
       function()
         vim.diagnostic.open_float()
       end,
-      "floating diagnostic",
+      "  floating diagnostic",
+    },
+    ["<leader>fm"] = {
+      function()
+        vim.lsp.buf.format()
+      end,
+      "   lsp formatting",
+    },
+    ["<leader>fd"] = {
+      function()
+        vim.diagnostic.open_float()
+      end,
+      "  floating diagnostic",
     },
   },
   v = {
@@ -129,7 +141,7 @@ M.lspconfig = {
       function()
         vim.diagnostic.open_float()
       end,
-      "floating diagnostic",
+      "  floating diagnostic",
     },
   },
 }
