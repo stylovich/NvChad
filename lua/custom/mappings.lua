@@ -9,26 +9,26 @@ vim.g.VM_maps = {
 local map = vim.api.nvim_set_keymap
 
 -- Move (Normal/Visual)
-map( "n", "<A-Left>", "<Plug>GoNSMLeft", {} )
-map( "n", "<A-Down>", "<Plug>GoNSMDown", {} )
-map( "n", "<A-Up>", "<Plug>GoNSMUp", {} )
-map( "n", "<A-Right>", "<Plug>GoNSMRight", {} )
+map("n", "<A-Left>", "<Plug>GoNSMLeft", {})
+map("n", "<A-Down>", "<Plug>GoNSMDown", {})
+map("n", "<A-Up>", "<Plug>GoNSMUp", {})
+map("n", "<A-Right>", "<Plug>GoNSMRight", {})
 
-map( "x", "<A-Left>", "<Plug>GoVSMLeft", {} )
-map( "x", "<A-Down>", "<Plug>GoVSMDown", {} )
-map( "x", "<A-Up>", "<Plug>GoVSMUp", {} )
-map( "x", "<A-Right>", "<Plug>GoVSMRight", {} )
+map("x", "<A-Left>", "<Plug>GoVSMLeft", {})
+map("x", "<A-Down>", "<Plug>GoVSMDown", {})
+map("x", "<A-Up>", "<Plug>GoVSMUp", {})
+map("x", "<A-Right>", "<Plug>GoVSMRight", {})
 
 -- Duplicate (Normal/Visual)
-map( "n", "<C-Left>", "<Plug>GoNSDLeft", {} )
-map( "n", "<C-Down>", "<Plug>GoNSDDown", {} )
-map( "n", "<C-Up>", "<Plug>GoNSDUp", {} )
-map( "n", "<C-Right>", "<Plug>GoNSDRight", {} )
+map("n", "<C-Left>", "<Plug>GoNSDLeft", {})
+map("n", "<C-Down>", "<Plug>GoNSDDown", {})
+map("n", "<C-Up>", "<Plug>GoNSDUp", {})
+map("n", "<C-Right>", "<Plug>GoNSDRight", {})
 
-map( "x", "<C-Left>", "<Plug>GoVSDLeft", {} )
-map( "x", "<C-Down>", "<Plug>GoVSDDown", {} )
-map( "x", "<C-Up>", "<Plug>GoVSDUp", {} )
-map( "x", "<C-Right>", "<Plug>GoVSDRight", {} )
+map("x", "<C-Left>", "<Plug>GoVSDLeft", {})
+map("x", "<C-Down>", "<Plug>GoVSDDown", {})
+map("x", "<C-Up>", "<Plug>GoVSDUp", {})
+map("x", "<C-Right>", "<Plug>GoVSDRight", {})
 
 M.general = {
   n = {
@@ -76,8 +76,7 @@ M.general = {
       "<cmd> CodeActionMenu <CR>",
       "Open Code Action Menu",
       opts = { noremap = true, nowait = true, silent = true },
-    }
-
+    },
   },
 
   i = {
@@ -94,7 +93,7 @@ M.general = {
       "<cmd> CodeActionMenu <CR>",
       "Open Code Action Menu",
       opts = { noremap = true, nowait = true, silent = true },
-    }
+    },
   },
 }
 M.telescope = {
@@ -106,28 +105,31 @@ M.telescope = {
 }
 M.lspconfig = {
   n = {
-    ["<leader>fm"] = {
+    ["<C-f>"] = {
       function()
         vim.lsp.buf.format()
       end,
       "   lsp formatting",
     },
-    ["<leader>of"] = {
+    ["<C-x>"] = {
       function()
         vim.diagnostic.open_float()
       end,
       "floating diagnostic",
     },
   },
-}
-M.tabufline = {
-  plugin = true,
-  n = {
-    ["<leader><tab>"] = {
+  v = {
+    ["<C-f>"] = {
       function()
-        require("nvchad_ui.tabufline").tabuflineNext()
+        vim.lsp.buf.format()
       end,
-      "Goto next buffer",
+      "   lsp formatting",
+    },
+    ["<C-x>"] = {
+      function()
+        vim.diagnostic.open_float()
+      end,
+      "floating diagnostic",
     },
   },
 }
