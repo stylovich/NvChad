@@ -5,13 +5,7 @@ local plugins = {
     "rmagatti/auto-session",
     lazy = false,
     config = function()
-      require("auto-session").setup {
-        log_level = "error",
-        auto_session_suppress_dirs = { "~/", "~/Projects", "~/Downloads", "/" },
-        cwd_change_handling = {
-          restore_upcoming_session = true,
-        },
-      }
+      require "custom.configs.auto-session"
     end,
   },
 
@@ -20,7 +14,7 @@ local plugins = {
     event = "InsertEnter",
     cmd = "Copilot",
     config = function()
-      require("copilot").setup(overrides.copilot)
+      require "custom.configs.copilot"
     end,
   },
 
@@ -30,15 +24,6 @@ local plugins = {
     config = function()
       require("copilot_cmp").setup()
     end,
-  },
-
-  {
-    "nvim-tree/nvim-tree.lua",
-    opts = {
-      view = {
-        side = "left",
-      },
-    },
   },
 
   {
@@ -131,11 +116,7 @@ local plugins = {
     "shellRaining/hlchunk.nvim",
     event = { "UIEnter" },
     config = function()
-      require("hlchunk").setup {
-        blank = {
-          enable = false,
-        },
-      }
+      require "custom.configs.hlchunk"
     end,
   },
 
@@ -149,8 +130,8 @@ local plugins = {
     cmd = { "TodoTrouble", "TodoTelescope" },
     event = "BufReadPost",
     opts = overrides.todo_comments,
-    config = function(_, opts)
-      require("todo-comments").setup(opts)
+    config = function()
+      require "custom.configs.todo-comments"
     end,
   },
 
@@ -158,13 +139,7 @@ local plugins = {
     "sindrets/diffview.nvim",
     lazy = false,
     config = function()
-      require("diffview").setup {
-        diff_binaries = false, -- Show diffs for binaries
-        wrapper = "vertical", -- wrapper mode: 'horizontal' | 'vertical' | 'tab' | 'none'
-        use_icons = true, -- Requires nvim-web-devicons
-        colored = true, -- Highlight the changed parts of the lines.
-        color_signs = true, -- Use the signs defined in your colorscheme
-      }
+      require "custom.configs.diffview"
     end,
   },
 
@@ -177,15 +152,7 @@ local plugins = {
     "dstein64/nvim-scrollview",
     lazy = false,
     config = function()
-      require("scrollview").setup {
-        excluded_filetypes = { "nerdtree" },
-        current_only = true,
-        winblend = 1,
-        base = "buffer",
-        column = 240,
-        signs_on_startup = { "all" },
-        diagnostics_severities = { vim.diagnostic.severity.ERROR },
-      }
+      require "custom.configs.scrollview"
     end,
   },
 
@@ -193,25 +160,7 @@ local plugins = {
     "ggandor/lightspeed.nvim",
     event = "BufRead",
     config = function()
-      require("lightspeed").setup {
-        ignore_case = false,
-        exit_after_idle_msecs = { unlabeled = nil, labeled = nil },
-        --- s/x ---
-        jump_to_unique_chars = { safety_timeout = 400 },
-        match_only_the_start_of_same_char_seqs = true,
-        force_beacons_into_match_width = false,
-        -- Display characters in a custom way in the highlighted matches.
-        substitute_chars = { ["\r"] = "¬" },
-
-        -- These keys are captured directly by the plugin at runtime.
-        special_keys = {
-          next_match_group = "<space>",
-          prev_match_group = "<tab>",
-        },
-        --- f/t ---
-        limit_ft_matches = 4,
-        repeat_ft_with_target_char = false,
-      }
+      require "custom.configs.lightspeed"
     end,
   },
 
