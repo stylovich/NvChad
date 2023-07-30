@@ -9,7 +9,7 @@ local plugins = {
       require "custom.configs.auto-session"
     end,
   },
-  
+
   {
     "zbirenbaum/copilot.lua", -- AI-assisted code completion
     event = "InsertEnter",
@@ -171,6 +171,14 @@ local plugins = {
     config = function()
       require "custom.configs.jabs"
     end
+  },
+
+  {
+    "booperlv/nvim-gomove", -- Move lines and blocks of code up and down
+    event = "BufRead",
+    config = function()
+      require "custom.configs.gomove"
+    end,
   }
 }
 

@@ -6,23 +6,32 @@ vim.g.VM_maps = {
   ["Select All"] = "<leader>da", -- select all similar words
 }
 
+local map = vim.api.nvim_set_keymap
+
+-- Move (Normal/Visual)
+map( "n", "<A-Left>", "<Plug>GoNSMLeft", {} )
+map( "n", "<A-Down>", "<Plug>GoNSMDown", {} )
+map( "n", "<A-Up>", "<Plug>GoNSMUp", {} )
+map( "n", "<A-Right>", "<Plug>GoNSMRight", {} )
+
+map( "x", "<A-Left>", "<Plug>GoVSMLeft", {} )
+map( "x", "<A-Down>", "<Plug>GoVSMDown", {} )
+map( "x", "<A-Up>", "<Plug>GoVSMUp", {} )
+map( "x", "<A-Right>", "<Plug>GoVSMRight", {} )
+
+-- Duplicate (Normal/Visual)
+map( "n", "<C-Left>", "<Plug>GoNSDLeft", {} )
+map( "n", "<C-Down>", "<Plug>GoNSDDown", {} )
+map( "n", "<C-Up>", "<Plug>GoNSDUp", {} )
+map( "n", "<C-Right>", "<Plug>GoNSDRight", {} )
+
+map( "x", "<C-Left>", "<Plug>GoVSDLeft", {} )
+map( "x", "<C-Down>", "<Plug>GoVSDDown", {} )
+map( "x", "<C-Up>", "<Plug>GoVSDUp", {} )
+map( "x", "<C-Right>", "<Plug>GoVSDRight", {} )
+
 M.general = {
   n = {
-    ["<C-b><C-b>"] = {
-      "<Esc> :y1 <CR>p",
-      "Duplicate current line",
-      opts = { noremap = true, nowait = true, silent = true },
-    },
-    ["<A-Up>"] = {
-      "<Esc>:m .-2<CR>",
-      opts = { noremap = true, nowait = true, silent = true },
-      "Move current line up",
-    },
-    ["<A-Down>"] = {
-      "<Esc>:m .+1<CR>",
-      "Move current line down",
-      opts = { noremap = true, nowait = true, silent = true },
-    },
     ["<leader>gl"] = {
       "<cmd> Gitsigns toggle_current_line_blame <CR>",
       "Show current line Git commit information",
