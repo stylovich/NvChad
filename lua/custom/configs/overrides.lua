@@ -95,8 +95,7 @@ M.todo_comments = {
     DONE = { icon = " ", color = "done", alt = { "COMPLETE" } },
     HACK = { icon = " ", color = "warning" },
     WARN = { icon = " ", color = "error", alt = { "WARNING", "XXX" } },
-    PERF = { icon = " ", alt = { "OPTIM", "PERFORMANCE", "OPTIMIZE" } },
-    NOTE = { icon = " ", color = "hint", alt = { "INFO" } },
+    NOTE = { icon = "", color = "hint", alt = { "INFO" } },
   },
   merge_keywords = true, -- when true, custom keywords will be merged with the defaults
   highlight = {

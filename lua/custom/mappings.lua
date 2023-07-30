@@ -55,6 +55,12 @@ M.general = {
       "Next buffer",
       opts = { noremap = true, nowait = true, silent = true },
     },
+
+    ["<leader>qw"] = {
+      "<cmd> JABSOpen <CR>",
+      "Open JABS Buffer Switcher",
+      opts = { noremap = true, nowait = true, silent = true },
+    }
   },
 
   i = {

@@ -214,6 +214,14 @@ local plugins = {
       }
     end,
   },
+
+  {
+    'matbme/JABS.nvim',
+    event = "BufRead",
+    config = function()
+      require "custom.configs.jabs"
+    end
+  }
 }
 
 return plugins
