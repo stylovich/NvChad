@@ -137,8 +137,8 @@ local plugins = {
   },
 
   {
-    "sindrets/diffview.nvim", -- Diffview for git diffs
-    lazy = false,
+    "sindrets/diffview.nvim", -- Diffview for git diffs 
+    event = "BufRead",
     config = function()
       require "custom.configs.diffview"
     end,
@@ -146,12 +146,12 @@ local plugins = {
 
   {
     "kevinhwang91/nvim-bqf", -- Better quickfix window
-    lazy = false,
+    event = "BufRead",
   },
 
   {
     "dstein64/nvim-scrollview", -- Scrollbar in the sign column
-    lazy = false,
+    event = "BufRead",
     config = function()
       require "custom.configs.scrollview"
     end,
