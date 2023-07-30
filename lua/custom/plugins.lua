@@ -1,16 +1,17 @@
 local overrides = require "custom.configs.overrides"
 
 local plugins = {
+
   {
-    "rmagatti/auto-session",
+    "rmagatti/auto-session", -- Auto save and restore sessions
     lazy = false,
     config = function()
       require "custom.configs.auto-session"
     end,
   },
-
+  
   {
-    "zbirenbaum/copilot.lua",
+    "zbirenbaum/copilot.lua", -- AI-assisted code completion
     event = "InsertEnter",
     cmd = "Copilot",
     config = function()
@@ -19,7 +20,7 @@ local plugins = {
   },
 
   {
-    "zbirenbaum/copilot-cmp",
+    "zbirenbaum/copilot-cmp", -- Copilot suggestions for nvim-cmp
     event = "InsertEnter",
     config = function()
       require("copilot_cmp").setup()
@@ -27,10 +28,10 @@ local plugins = {
   },
 
   {
-    "neovim/nvim-lspconfig",
+    "neovim/nvim-lspconfig", -- Collection of configurations for built-in LSP client
     dependencies = {
       {
-        "jose-elias-alvarez/null-ls.nvim",
+        "jose-elias-alvarez/null-ls.nvim", -- Run linters and fixers against your code
         config = function()
           require "custom.configs.null-ls"
         end,
@@ -43,10 +44,10 @@ local plugins = {
   },
 
   {
-    "nvim-treesitter/nvim-treesitter",
+    "nvim-treesitter/nvim-treesitter", -- Treesitter configurations and abstraction layer for Neovim
     opts = overrides.treesitter,
     dependencies = {
-      "JoosepAlviste/nvim-ts-context-commentstring",
+      "JoosepAlviste/nvim-ts-context-commentstring", -- Treesitter context aware commentstring
       config = function()
         require("Comment").setup {
           pre_hook = require("ts_context_commentstring.integrations.comment_nvim").create_pre_hook(),
@@ -56,22 +57,22 @@ local plugins = {
   },
 
   {
-    "nvim-tree/nvim-tree.lua",
+    "nvim-tree/nvim-tree.lua", -- File explorer
     opts = overrides.nvimtree,
   },
 
   {
-    "williamboman/mason.nvim",
+    "williamboman/mason.nvim", -- Plugin manager
     opts = overrides.mason,
   },
 
   {
-    "dstein64/vim-startuptime",
+    "dstein64/vim-startuptime", -- Measure startup time
     cmd = "StartupTime",
   },
 
   {
-    "nvim-treesitter/nvim-treesitter-context",
+    "nvim-treesitter/nvim-treesitter-context", -- Treesitter context
     init = require("core.utils").lazy_load "nvim-treesitter-context",
     dependencies = "nvim-treesitter/nvim-treesitter",
     config = function()
@@ -80,7 +81,7 @@ local plugins = {
   },
 
   {
-    "nvim-treesitter/nvim-treesitter-textobjects",
+    "nvim-treesitter/nvim-treesitter-textobjects", -- Treesitter textobjects
     init = require("core.utils").lazy_load "nvim-treesitter-textobjects",
     -- after = "nvim-treesitter/nvim-treesitter",
     dependencies = "nvim-treesitter/nvim-treesitter",
@@ -90,22 +91,22 @@ local plugins = {
   },
 
   {
-    "lewis6991/gitsigns.nvim",
+    "lewis6991/gitsigns.nvim", -- Git signs in the signs column
     opts = require("custom.configs.gitsigns").gitsigns,
   },
 
   {
-    "NvChad/nvim-colorizer.lua",
+    "NvChad/nvim-colorizer.lua", -- Colorizer for hex codes
     enabled = false,
   },
 
   {
-    "folke/which-key.nvim",
+    "folke/which-key.nvim", -- Keybindings helper which shows popup with possible keybindings
     enabled = true,
   },
 
   {
-    "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
+    "https://git.sr.ht/~whynothugo/lsp_lines.nvim", -- Show diagnostics in the sign columns
     init = require("core.utils").lazy_load "lsp_lines.nvim",
     config = function()
       require("lsp_lines").setup()
@@ -113,7 +114,7 @@ local plugins = {
   },
 
   {
-    "shellRaining/hlchunk.nvim",
+    "shellRaining/hlchunk.nvim", -- Highlight chunks of code based on indentation
     event = { "UIEnter" },
     config = function()
       require "custom.configs.hlchunk"
@@ -121,12 +122,12 @@ local plugins = {
   },
 
   {
-    "mg979/vim-visual-multi",
+    "mg979/vim-visual-multi", -- Multiple cursors in visual mode
     lazy = false,
   },
 
   {
-    "folke/todo-comments.nvim",
+    "folke/todo-comments.nvim", -- Highlight TODO comments
     cmd = { "TodoTrouble", "TodoTelescope" },
     event = "BufReadPost",
     opts = overrides.todo_comments,
@@ -136,7 +137,7 @@ local plugins = {
   },
 
   {
-    "sindrets/diffview.nvim",
+    "sindrets/diffview.nvim", -- Diffview for git diffs
     lazy = false,
     config = function()
       require "custom.configs.diffview"
@@ -144,12 +145,12 @@ local plugins = {
   },
 
   {
-    "kevinhwang91/nvim-bqf",
+    "kevinhwang91/nvim-bqf", -- Better quickfix window
     lazy = false,
   },
 
   {
-    "dstein64/nvim-scrollview",
+    "dstein64/nvim-scrollview", -- Scrollbar in the sign column
     lazy = false,
     config = function()
       require "custom.configs.scrollview"
@@ -157,7 +158,7 @@ local plugins = {
   },
 
   {
-    "ggandor/lightspeed.nvim",
+    "ggandor/lightspeed.nvim", -- Jump to any word in the buffer with few keystrokes
     event = "BufRead",
     config = function()
       require "custom.configs.lightspeed"
@@ -165,7 +166,7 @@ local plugins = {
   },
 
   {
-    'matbme/JABS.nvim',
+    'matbme/JABS.nvim', -- Jump to any buffer with few keystrokes
     event = "BufRead",
     config = function()
       require "custom.configs.jabs"
