@@ -1,4 +1,5 @@
 local opt = vim.opt
+local g = vim.g
 
 -- opt.colorcolumn = "120" -- Line length marker
 opt.cursorcolumn = false -- Highlight the current column
@@ -19,5 +20,10 @@ opt.splitright = true -- Put new windows right of current
 opt.signcolumn = "yes" -- Always show the signcolumn, otherwise it would shift the text each time
 opt.mouse = "a" -- Enable your mouse
 opt.showtabline = 2 -- Always show tabs
+
+-- Code Action Menu
+g.code_action_menu_show_details = false
+g.code_action_menu_show_diff = true
+g.code_action_menu_show_action_kind = true
 
 vim.cmd "silent! command! NvCloseAllBuf lua require('nvchad_ui/tabufline').closeAllBufs('')"

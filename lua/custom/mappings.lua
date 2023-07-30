@@ -37,6 +37,7 @@ M.general = {
       "Show current line Git commit information",
       opts = { noremap = true, nowait = true, silent = true },
     },
+
     ["<leader>qq"] = {
       "<cmd> q <CR>",
       "Quit current window",
@@ -47,6 +48,7 @@ M.general = {
       "Force quit all windows",
       opts = { noremap = true, nowait = true, silent = true },
     },
+
     ["<leader>u"] = {
       "<cmd> Telescope undo <CR>",
       "Open Telescope undo",
@@ -58,7 +60,6 @@ M.general = {
       "Next buffer",
       opts = { noremap = true, nowait = true, silent = true },
     },
-
     ["<C-PageDown>"] = {
       "<cmd> bprevious <CR>",
       "Next buffer",
@@ -69,22 +70,31 @@ M.general = {
       "<cmd> JABSOpen <CR>",
       "Open JABS Buffer Switcher",
       opts = { noremap = true, nowait = true, silent = true },
+    },
+
+    ["<C-a>"] = {
+      "<cmd> CodeActionMenu <CR>",
+      "Open Code Action Menu",
+      opts = { noremap = true, nowait = true, silent = true },
     }
+
   },
 
   i = {
     ["jj"] = { "<ESC>", "escape", opts = { nowait = true } },
     ["jk"] = { "<ESC>", "escape", opts = { nowait = true } },
-    ["<C-b><C-b>"] = {
-      "<Esc> :y1 <CR>p",
-      "Duplicate current line",
-      opts = { noremap = true, nowait = true, silent = true },
-    },
+
     -- delete right word using ctrl + delete (ctrl+supr)
     ["<C-Del>"] = { "<C-o>dw", "Delete right word", opts = { noremap = true, nowait = true } },
     -- delete left word using ctrl + backspace
     ["<C-H>"] = { "<C-w>", "Delete left word", opts = { noremap = true, nowait = true } },
     ["<C-BS>"] = { "<C-w>", "Delete left word", opts = { noremap = true, nowait = true } },
+
+    ["<C-a>"] = {
+      "<cmd> CodeActionMenu <CR>",
+      "Open Code Action Menu",
+      opts = { noremap = true, nowait = true, silent = true },
+    }
   },
 }
 M.telescope = {

@@ -137,7 +137,7 @@ local plugins = {
   },
 
   {
-    "sindrets/diffview.nvim", -- Diffview for git diffs 
+    "sindrets/diffview.nvim", -- Diffview for git diffs
     event = "BufRead",
     config = function()
       require "custom.configs.diffview"
@@ -166,20 +166,26 @@ local plugins = {
   },
 
   {
-    'matbme/JABS.nvim', -- Jump to any buffer with few keystrokes
+    "matbme/JABS.nvim", -- Jump to any buffer with few keystrokes
     event = "BufRead",
     config = function()
       require "custom.configs.jabs"
-    end
+    end,
   },
 
   {
-    "booperlv/nvim-gomove", -- Move lines and blocks of code up and down
+    "booperlv/nvim-gomove", -- Move/Duplicate lines and blocks of code around
     event = "BufRead",
     config = function()
       require "custom.configs.gomove"
     end,
-  }
+  },
+
+  {
+    "weilbith/nvim-code-action-menu", -- Code actions in a floating window
+    cmd = "CodeActionMenu",
+    event = "BufRead",
+  },
 }
 
 return plugins
