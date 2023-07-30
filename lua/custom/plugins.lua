@@ -60,6 +60,14 @@ local plugins = {
   {
     "nvim-treesitter/nvim-treesitter",
     opts = overrides.treesitter,
+    dependencies = {
+      "JoosepAlviste/nvim-ts-context-commentstring",
+      config = function()
+        require("Comment").setup {
+          pre_hook = require("ts_context_commentstring.integrations.comment_nvim").create_pre_hook(),
+        }
+      end,
+    },
   },
 
   {
@@ -123,7 +131,11 @@ local plugins = {
     "shellRaining/hlchunk.nvim",
     event = { "UIEnter" },
     config = function()
-      require("hlchunk").setup {}
+      require("hlchunk").setup {
+        blank = {
+          enable = false,
+        },
+      }
     end,
   },
 

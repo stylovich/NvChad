@@ -18,6 +18,7 @@ M.treesitter = {
     "bash",
     "dockerfile",
     "toml",
+    "tsx"
   },
   indent = {
     enable = true,
@@ -38,6 +39,9 @@ M.treesitter = {
       scope_incremental = "grc",
       node_decremental = "grm",
     },
+  },
+   context_commentstring = {
+    enable = true,
   },
 }
 
@@ -127,7 +131,7 @@ M.todo_comments = {
 
 M.copilot = {
   panel = {
-    enabled = false, 
+    enabled = false,
     auto_refresh = false,
     keymap = {
       jump_prev = "[[",
@@ -146,7 +150,7 @@ M.copilot = {
     auto_trigger = true,
     debounce = 75,
     always_show = false,
-    keymap = { 
+    keymap = {
       accept = "<A-CR>",
       accept_word = false,
       accept_line = false,
@@ -199,9 +203,6 @@ M.copilot = {
   server_opts_overrides = {},
 }
 
-M.scrollbar = {
-
-}
-
+M.scrollbar = {}
 
 return M
