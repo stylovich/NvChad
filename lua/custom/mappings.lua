@@ -20,15 +20,15 @@ map("x", "<A-Up>", "<Plug>GoVSMUp", {})
 map("x", "<A-Right>", "<Plug>GoVSMRight", {})
 
 -- Duplicate (Normal/Visual)
-map("n", "<C-Left>", "<Plug>GoNSDLeft", {})
+-- map("n", "<C-Left>", "<Plug>GoNSDLeft", {})
 map("n", "<C-Down>", "<Plug>GoNSDDown", {})
 map("n", "<C-Up>", "<Plug>GoNSDUp", {})
-map("n", "<C-Right>", "<Plug>GoNSDRight", {})
+-- map("n", "<C-Right>", "<Plug>GoNSDRight", {})
 
-map("x", "<C-Left>", "<Plug>GoVSDLeft", {})
+-- map("x", "<C-Left>", "<Plug>GoVSDLeft", {})
 map("x", "<C-Down>", "<Plug>GoVSDDown", {})
 map("x", "<C-Up>", "<Plug>GoVSDUp", {})
-map("x", "<C-Right>", "<Plug>GoVSDRight", {})
+-- map("x", "<C-Right>", "<Plug>GoVSDRight", {})
 
 M.general = {
   n = {

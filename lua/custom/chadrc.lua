@@ -4,7 +4,7 @@ local M = {}
 -- Path to overriding theme and highlights files
 local highlights = require "custom.highlights"
 M.ui = {
-  theme = "onedark",
+  theme = "github_light",
   theme_toggle = { "onedark", "github_light" },
   transparency = false,
   lsp_semantic_tokens = true,

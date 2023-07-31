@@ -121,10 +121,10 @@ local plugins = {
     end,
   },
 
-  {
-    "mg979/vim-visual-multi", -- Multiple cursors in visual mode
-    lazy = false,
-  },
+  -- {
+  --   "mg979/vim-visual-multi", -- Multiple cursors in visual mode
+  --   lazy = false,
+  -- },
 
   {
     "folke/todo-comments.nvim", -- Highlight TODO comments
