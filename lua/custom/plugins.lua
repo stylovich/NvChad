@@ -178,6 +178,15 @@ local plugins = {
     cmd = "CodeActionMenu",
     event = "BufRead",
   },
+
+  {
+    "karb94/neoscroll.nvim", -- Smooth scrolling in Neovim
+    event = "BufRead",
+    -- enabled = false,
+    config = function()
+      require "custom.configs.neoscroll"
+    end,
+  }
 }
 
 return plugins
