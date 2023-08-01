@@ -182,9 +182,16 @@ local plugins = {
   {
     "karb94/neoscroll.nvim", -- Smooth scrolling in Neovim
     event = "BufRead",
-    -- enabled = false,
     config = function()
       require "custom.configs.neoscroll"
+    end,
+  },
+
+  {
+    "chentoast/marks.nvim", -- Marks in the sign column and jump to them
+    event = "BufRead",
+    config = function()
+      require "custom.configs.marks"
     end,
   }
 }
