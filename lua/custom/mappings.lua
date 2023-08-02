@@ -28,11 +28,6 @@ map("x", "<C-Down>", "<Plug>GoVSDDown", {})
 map("x", "<C-Up>", "<Plug>GoVSDUp", {})
 -- map("x", "<C-Right>", "<Plug>GoVSDRight", {})
 
--- MARKS
-
-
-
-
 M.general = {
   n = {
     ["<leader>gl"] = {
@@ -96,7 +91,13 @@ M.general = {
       "Toggle marks signs",
       opts = { noremap = true, nowait = true, silent = true },
     },
-
+    
+    -- SPECTRE
+    ["<leader>rs"] = {
+      "<cmd> Spectre <CR>",
+      "  Spectre search and replace",
+      opts = { noremap = true, nowait = true, silent = true },
+    }
   },
 
   i = {

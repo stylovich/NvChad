@@ -201,6 +201,14 @@ local plugins = {
     config = function()
       require "custom.configs.better-escape"
     end,
+  },
+
+  {
+    "nvim-pack/nvim-spectre", -- Search and replace
+    event = "BufRead",
+    config = function()
+      require "custom.configs.spectre"
+    end,
   }
 }
 
