@@ -25,16 +25,22 @@ require("marks").setup {
   -- default virt_text is "".
   bookmark_0 = {
     sign = "⚑",
-    virt_text = "hello world",
+    virt_text = " [Mark: 0]",
     -- explicitly prompt for a virtual line annotation when setting a bookmark from this group.
     -- defaults to false.
     annotate = false,
   },
+  bookmark_1 = {
+    sign = "⚐",
+    virt_text = " [Mark: 1]",
+    annotate = true,
+  },
   mappings = {
-    set_next = "k,",
-    next = "k]",
-    preview = "k:",
-    set_bookmark0 = "k0",
+    set_next = "m,",
+    next = "m]",
+    preview = "m:",
+    set_bookmark0 = "m0",
+    set_bookmark1 = "m1",
     prev = false -- pass false to disable only this default mapping
   }
 }

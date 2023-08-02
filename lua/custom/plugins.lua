@@ -193,7 +193,7 @@ local plugins = {
     config = function()
       require "custom.configs.marks"
     end,
-  }
+  },
 }
 
 return plugins

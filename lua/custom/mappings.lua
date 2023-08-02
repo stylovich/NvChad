@@ -1,12 +1,11 @@
 local M = {}
+local map = vim.api.nvim_set_keymap
 
 vim.g.VM_maps = {
   ["Find Under"] = "<C-d>", -- like ctrl+d in vscode
   ["Find Subword Under"] = "<C-d>", -- like ctrl+d in vscode
   ["Select All"] = "<leader>da", -- select all similar words
 }
-
-local map = vim.api.nvim_set_keymap
 
 -- Move (Normal/Visual)
 map("n", "<A-Left>", "<Plug>GoNSMLeft", {})
@@ -24,11 +23,15 @@ map("x", "<A-Right>", "<Plug>GoVSMRight", {})
 map("n", "<C-Down>", "<Plug>GoNSDDown", {})
 map("n", "<C-Up>", "<Plug>GoNSDUp", {})
 -- map("n", "<C-Right>", "<Plug>GoNSDRight", {})
-
 -- map("x", "<C-Left>", "<Plug>GoVSDLeft", {})
 map("x", "<C-Down>", "<Plug>GoVSDDown", {})
 map("x", "<C-Up>", "<Plug>GoVSDUp", {})
 -- map("x", "<C-Right>", "<Plug>GoVSDRight", {})
+
+-- MARKS
+
+
+
 
 M.general = {
   n = {
@@ -71,6 +74,29 @@ M.general = {
       "Open Code Action Menu",
       opts = { noremap = true, nowait = true, silent = true },
     },
+
+    -- MARKS
+    ["<leader>ml"] = {
+      "<cmd> MarksListAll <CR>",
+      "List all marks",
+      opts = { noremap = true, nowait = true, silent = true },
+    },
+    ["<C-m>"] = {
+      "<cmd> MarksListAll <CR>",
+      "List all marks",
+      opts = { noremap = true, nowait = true, silent = true },
+    },
+    ["<leader>mb"] = {
+      "<cmd> MarksListBuf <CR>",
+      "List buffer marks",
+      opts = { noremap = true, nowait = true, silent = true },
+    },
+    ["<leader>mt"] = {
+      "<cmd> MarksToggleSigns <CR>",
+      "Toggle marks signs",
+      opts = { noremap = true, nowait = true, silent = true },
+    },
+
   },
 
   i = {
