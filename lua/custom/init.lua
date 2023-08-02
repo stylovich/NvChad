@@ -6,7 +6,7 @@ opt.cursorcolumn = false -- Highlight the current column
 opt.number = true -- Print line number
 opt.relativenumber = false -- Show line numbers relative to the line with the cursor
 opt.shiftwidth = 2 -- Size of an indent
-opt.tabstop = 1 -- Number of spaces tabs count for
+opt.tabstop = 2 -- Number of spaces tabs count for
 opt.cursorline = true -- Highlight the current line
 opt.expandtab = true -- Use spaces instead of tabs
 opt.smartindent = true -- Insert indents automatically
@@ -19,7 +19,6 @@ opt.splitbelow = true -- Put new windows below current
 opt.splitright = true -- Put new windows right of current
 opt.signcolumn = "yes" -- Always show the signcolumn, otherwise it would shift the text each time
 opt.mouse = "a" -- Enable your mouse
-opt.showtabline = 2 -- Always show tabs
 
 -- Code Action Menu
 g.code_action_menu_show_details = false

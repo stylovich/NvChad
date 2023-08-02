@@ -100,9 +100,6 @@ M.general = {
   },
 
   i = {
-    ["jj"] = { "<ESC>", "escape", opts = { nowait = true } },
-    ["jk"] = { "<ESC>", "escape", opts = { nowait = true } },
-
     -- delete right word using ctrl + delete (ctrl+supr)
     ["<C-Del>"] = { "<C-o>dw", "Delete right word", opts = { noremap = true, nowait = true } },
     -- delete left word using ctrl + backspace

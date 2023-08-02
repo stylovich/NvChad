@@ -8,7 +8,6 @@ M.ui = {
   theme_toggle = { "onenord", "github_light" },
   transparency = false,
   lsp_semantic_tokens = true,
-  nvdash = { load_on_startup = false },
   hl_override = highlights.override,
   hl_add = highlights.add,
   statusline = {

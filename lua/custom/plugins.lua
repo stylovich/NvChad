@@ -194,6 +194,14 @@ local plugins = {
       require "custom.configs.marks"
     end,
   },
+
+  {
+    "max397574/better-escape.nvim", -- Better escape
+    event = "InsertEnter",
+    config = function()
+      require "custom.configs.better-escape"
+    end,
+  }
 }
 
 return plugins
