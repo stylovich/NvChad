@@ -14,15 +14,21 @@ local b = null_ls.builtins
 
 local sources = {
   -- formatting
-  b.formatting.prettierd,
+  b.formatting.prettierd.with { extra_args = {
+    "--stdin-filepath", "$FILENAME",
+    "--config", "~/.config/prettier/.prettierrc",
+    "--ignore-path", "~/.config/prettier/.prettierignore",
+  } },
   b.formatting.shfmt.with { extra_args = { "-i", "4" } },
   b.formatting.fixjson,
   b.formatting.stylua,
+  b.formatting.eslint_d,
 
   -- diagnostics
   with_diagnostics_code(b.diagnostics.write_good),
   with_diagnostics_code(b.diagnostics.eslint_d),
   with_diagnostics_code(b.diagnostics.shellcheck),
+  with_diagnostics_code(b.diagnostics.markdownlint),
 
   -- code actions
   b.code_actions.gitsigns,
