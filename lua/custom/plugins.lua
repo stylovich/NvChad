@@ -209,6 +209,11 @@ local plugins = {
     config = function()
       require "custom.configs.spectre"
     end,
+  },
+
+  {
+    "Vonr/align.nvim",
+    event = "BufRead",
   }
 }
 

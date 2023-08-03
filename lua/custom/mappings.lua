@@ -28,7 +28,21 @@ map("x", "<C-Down>", "<Plug>GoVSDDown", {})
 map("x", "<C-Up>", "<Plug>GoVSDUp", {})
 -- map("x", "<C-Right>", "<Plug>GoVSDRight", {})
 
+
 M.general = {
+  x = {
+    ["aa"] = {
+      "<cmd> lua require'align'.align_to_string(false, true, true) <CR>",
+      "Aligns to a string, looking left and with previews",
+      opts = { noremap = true, nowait = true, silent = true },
+    },
+    ["ar"] = {
+      "<cmd> lua require'align'.align_to_string(true, true, true) <CR>",
+      "Aligns to a Lua pattern, looking left and with previews",
+      opts = { noremap = true, nowait = true, silent = true },
+    },
+  },
+
   n = {
     ["<leader>gl"] = {
       "<cmd> Gitsigns toggle_current_line_blame <CR>",
@@ -91,7 +105,7 @@ M.general = {
       "Toggle marks signs",
       opts = { noremap = true, nowait = true, silent = true },
     },
-    
+
     -- SPECTRE
     ["<leader>rs"] = {
       "<cmd> Spectre <CR>",
