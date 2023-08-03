@@ -19,6 +19,7 @@ opt.splitbelow = true -- Put new windows below current
 opt.splitright = true -- Put new windows right of current
 opt.signcolumn = "yes" -- Always show the signcolumn, otherwise it would shift the text each time
 opt.mouse = "a" -- Enable your mouse
+opt.hidden = true
 
 -- Code Action Menu
 g.code_action_menu_show_details = false

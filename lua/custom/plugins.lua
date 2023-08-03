@@ -115,6 +115,7 @@ local plugins = {
 
   {
     "shellRaining/hlchunk.nvim", -- Highlight chunks of code based on indentation
+    enabled = false,
     event = { "UIEnter" },
     config = function()
       require "custom.configs.hlchunk"
