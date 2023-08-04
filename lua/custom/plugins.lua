@@ -215,7 +215,26 @@ local plugins = {
   {
     "Vonr/align.nvim",
     event = "BufRead",
-  }
+  },
+
+  {
+    "mfussenegger/nvim-dap", -- Debugger client
+    event = "BufRead",
+  },
+
+  {
+    "microsoft/vscode-js-debug",
+    build = "npm install --legacy-peer-deps && npx gulp vsDebugServerBundle && mv dist out",
+    config = function()
+      require "custom.configs.dap"
+    end,
+  },
+
+  { "rcarriga/nvim-dap-ui",
+    requires = {
+      "mfussenegger/nvim-dap"
+    }
+  },
 }
 
 return plugins
