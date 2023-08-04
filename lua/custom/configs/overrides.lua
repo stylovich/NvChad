@@ -19,6 +19,8 @@ M.treesitter = {
     "dockerfile",
     "toml",
     "tsx",
+    "ini",
+    "dot",
   },
   indent = {
     enable = true,
@@ -74,7 +76,7 @@ M.mason = {
 M.nvimtree = {
   view = {
     side = "left",
-     width = 37,
+    width = 37,
   },
   git = {
     enable = true,
@@ -82,7 +84,6 @@ M.nvimtree = {
   },
   renderer = {
     highlight_git = true,
-    highlight_opened_files = true,
     icons = {
       show = {
         git = true,
