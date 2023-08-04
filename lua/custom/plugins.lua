@@ -220,17 +220,20 @@ local plugins = {
   {
     "mfussenegger/nvim-dap", -- Debugger client
     event = "BufRead",
+    enabled = false,
   },
 
   {
     "microsoft/vscode-js-debug",
     build = "npm install --legacy-peer-deps && npx gulp vsDebugServerBundle && mv dist out",
+    enabled = false,
     config = function()
       require "custom.configs.dap"
     end,
   },
 
   { "rcarriga/nvim-dap-ui",
+    enabled = false,
     requires = {
       "mfussenegger/nvim-dap"
     }
