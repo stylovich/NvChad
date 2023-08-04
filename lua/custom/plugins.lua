@@ -148,6 +148,16 @@ local plugins = {
   {
     "kevinhwang91/nvim-bqf", -- Better quickfix window
     event = "BufRead",
+    config = function()
+      require "custom.configs.bqf"
+    end,
+  },
+
+  {
+    "junegunn/fzf",
+    run = function()
+      vim.fn["fzf#install"]()
+    end,
   },
 
   {
@@ -232,12 +242,9 @@ local plugins = {
     end,
   },
 
-  { "rcarriga/nvim-dap-ui",
-    enabled = false,
-    requires = {
-      "mfussenegger/nvim-dap"
-    }
-  },
+  { "rcarriga/nvim-dap-ui", enabled = false, requires = {
+    "mfussenegger/nvim-dap",
+  } },
 }
 
 return plugins
