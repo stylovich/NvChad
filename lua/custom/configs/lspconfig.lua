@@ -2,7 +2,7 @@ local on_attach = require("plugins.configs.lspconfig").on_attach
 local capabilities = require("plugins.configs.lspconfig").capabilities
 
 local lspconfig = require "lspconfig"
-local servers = { "eslint", "tsserver", "vimls" }
+local servers = { "eslint", "tsserver", "vimls", "html", "jsonls", "pyright", "rust_analyzer", "sqlls", "stylelint_lsp" }
 
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {

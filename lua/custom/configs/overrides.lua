@@ -21,6 +21,7 @@ M.treesitter = {
     "tsx",
     "ini",
     "dot",
+    "rust",
   },
   indent = {
     enable = true,

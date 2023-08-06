@@ -244,6 +244,16 @@ local plugins = {
   },
 
   {
+    "simrat39/rust-tools.nvim", -- Rust tools
+    after = "nvim-lspconfig",
+    requires = "nvim-lua/plenary.nvim",
+    ft = "rust", -- for rust only
+    config = function()
+      require("custom.configs.rust-tools").setup()
+    end,
+  },
+
+  {
     "mfussenegger/nvim-dap", -- Debugger client
     event = "BufRead",
     enabled = false,
@@ -264,6 +274,9 @@ local plugins = {
     requires = {
       "mfussenegger/nvim-dap",
     },
+    config = function()
+      require "custom.configs.dap-ui"
+    end,
   },
 
   {

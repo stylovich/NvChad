@@ -11,25 +11,65 @@ local with_diagnostics_code = function(builtin)
 end
 
 local b = null_ls.builtins
+local helpers = require "null-ls.helpers"
+
+local xmlformatter = {
+  name = "xmlformatter",
+  method = null_ls.methods.FORMATTING,
+  filetypes = { "xml" },
+  generator = helpers.formatter_factory {
+    command = "xmlformat",
+    args = { "--indent", "4", "$FILENAME" },
+    to_stdin = true,
+  },
+}
 
 local sources = {
   -- formatting
-  b.formatting.prettierd.with { extra_args = {
-    "--stdin-filepath", "$FILENAME",
-    "--config", "~/.config/prettier/.prettierrc",
-    "--ignore-path", "~/.config/prettier/.prettierignore",
-  } },
+  b.formatting.prettierd.with {
+    filetypes = {
+      "javascript",
+      "javascriptreact",
+      "typescript",
+      "typescriptreact",
+      "vue",
+      "css",
+      "scss",
+      "less",
+      "html",
+      "json",
+      "jsonc",
+      "yaml",
+      "markdown",
+      "markdown.mdx",
+      "graphql",
+      "handlebars",
+    },
+    extra_args = {
+      "--stdin-filepath",
+      "$FILENAME",
+      "--config",
+      "~/.config/prettier/.prettierrc",
+      "--ignore-path",
+      "~/.config/prettier/.prettierignore",
+    },
+  },
   b.formatting.shfmt.with { extra_args = { "-i", "4" } },
   b.formatting.fixjson,
   b.formatting.stylua,
   b.formatting.eslint_d,
+  b.formatting.stylelint,
+  b.formatting.rustfmt,
+  b.formatting.black,
+  b.formatting.sqlfluff.with { extra_args = { "--dialect", "postgres" } },
 
   -- diagnostics
   with_diagnostics_code(b.diagnostics.write_good),
   with_diagnostics_code(b.diagnostics.eslint_d),
   with_diagnostics_code(b.diagnostics.shellcheck),
   with_diagnostics_code(b.diagnostics.markdownlint),
-
+  with_diagnostics_code(b.diagnostics.stylelint),
+  with_diagnostics_code(b.diagnostics.sqlfluff.with { extra_args = { "--dialect", "postgres" } }),
   -- code actions
   b.code_actions.gitsigns,
   b.code_actions.eslint_d,
@@ -38,12 +78,14 @@ local sources = {
 
   -- hover
   b.hover.dictionary,
+
+  xmlformatter,
 }
 
 local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 null_ls.setup {
   debug = false,
-  debounce = 150,
+  debounce = 200,
   save_after_format = false,
   sources = sources,
   on_attach = function(client, bufnr)
