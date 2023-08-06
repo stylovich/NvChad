@@ -208,7 +208,7 @@ local plugins = {
 
   {
     "max397574/better-escape.nvim", -- Better escape
-    event = "InsertEnter",
+    event = "InsertCharPre",
     config = function()
       require "custom.configs.better-escape"
     end,
@@ -216,15 +216,31 @@ local plugins = {
 
   {
     "nvim-pack/nvim-spectre", -- Search and replace
+    after = "base46",
     event = "BufRead",
+    requires = {
+      { "nvim-lua/plenary.nvim" },
+    },
     config = function()
       require "custom.configs.spectre"
     end,
   },
 
   {
-    "Vonr/align.nvim",
+    "Vonr/align.nvim", -- Align text by a given pattern
     event = "BufRead",
+  },
+
+  {
+    "AckslD/nvim-neoclip.lua", -- Clipboard manager
+    after = "telescope.nvim",
+    event = "BufRead",
+    requires = {
+      { "nvim-telescope/telescope.nvim" },
+    },
+    config = function()
+      require "custom.configs.neoclip"
+    end,
   },
 
   {
@@ -234,7 +250,7 @@ local plugins = {
   },
 
   {
-    "microsoft/vscode-js-debug",
+    "microsoft/vscode-js-debug", -- Debugger for JavaScript and TypeScript
     build = "npm install --legacy-peer-deps && npx gulp vsDebugServerBundle && mv dist out",
     enabled = false,
     config = function()
@@ -242,9 +258,24 @@ local plugins = {
     end,
   },
 
-  { "rcarriga/nvim-dap-ui", enabled = false, requires = {
-    "mfussenegger/nvim-dap",
-  } },
+  {
+    "rcarriga/nvim-dap-ui", -- UI for DAP
+    enabled = false,
+    requires = {
+      "mfussenegger/nvim-dap",
+    },
+  },
+
+  {
+    "nvim-telescope/telescope-dap.nvim", -- Telescope integration for DAP
+    after = "telescope.nvim",
+    requires = {
+      { "nvim-telescope/telescope.nvim" },
+    },
+    config = function()
+      require "custom.configs.telescope-dap"
+    end,
+  }
 }
 
 return plugins

@@ -53,6 +53,9 @@ M.mason = {
     "lua-language-server",
     "stylua",
 
+    -- python stuff
+    "black",
+
     -- shell dev
     "shfmt",
     "shellcheck",
@@ -69,6 +72,7 @@ M.mason = {
     "eslint_d",
     "fixjson",
     "write-good",
+    "xmlformatter",
   },
 }
 
@@ -76,7 +80,7 @@ M.mason = {
 M.nvimtree = {
   view = {
     side = "left",
-    width = 37,
+    width = 35,
   },
   git = {
     enable = true,

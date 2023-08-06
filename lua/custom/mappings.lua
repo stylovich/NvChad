@@ -67,17 +67,6 @@ M.general = {
       opts = { noremap = true, nowait = true, silent = true },
     },
 
-    ["<C-PageUp>"] = {
-      "<cmd> bnext <CR>",
-      "Next buffer",
-      opts = { noremap = true, nowait = true, silent = true },
-    },
-    ["<C-PageDown>"] = {
-      "<cmd> bprevious <CR>",
-      "Next buffer",
-      opts = { noremap = true, nowait = true, silent = true },
-    },
-
     ["<C-a>"] = {
       "<cmd> CodeActionMenu <CR>",
       "Open Code Action Menu",
@@ -111,7 +100,14 @@ M.general = {
       "<cmd> Spectre <CR>",
       "  Spectre search and replace",
       opts = { noremap = true, nowait = true, silent = true },
-    }
+    },
+
+    -- NEOCLIP
+    ["<leader>cv"] = {
+      "<cmd> Telescope neoclip <CR>",
+      "  Neoclip paste",
+      opts = { noremap = true, nowait = true, silent = true },
+    },
   },
 
   i = {

@@ -49,7 +49,7 @@ local options = {
     },
   },
 
-  extensions_list = { "themes", "terms", "undo" },
+  extensions_list = { "themes", "terms", "undo", "neoclip" },
   extensions = {
     undo = {
       side_by_side = true,
