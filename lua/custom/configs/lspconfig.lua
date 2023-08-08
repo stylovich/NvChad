@@ -1,11 +1,8 @@
 local on_attach = require("plugins.configs.lspconfig").on_attach
 local capabilities = require("plugins.configs.lspconfig").capabilities
-local flags = require("plugins.configs.lspconfig").flags
-local handlers = require("plugins.configs.lspconfig").handlers
-
 local lspconfig = require "lspconfig"
-local servers =
-  { "eslint", "tsserver", "vimls", "html", "jsonls", "pyright", "rust_analyzer", "sqlls", "stylelint_lsp" }
+
+local servers = { "eslint", "tsserver", "vimls", "html", "jsonls", "pyright", "sqlls", "stylelint_lsp" }
 
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {
@@ -28,27 +25,6 @@ lspconfig.eslint.setup {
   settings = {
     eslint = {
       workingDirectories = { { mode = "auto" } },
-    },
-  },
-}
-
-lspconfig.rust_analyzer.setup {
-  on_attach = on_attach,
-  capabilities = capabilities,
-  flags = flags,
-  handlers = handlers,
-  settings = {
-    ["rust-analyzer"] = {
-      checkOnSave = {
-        command = "clippy",
-      },
-      inlayHints = {
-        closureReturnTypeHints = true,
-        lifetimeElisionHints = {
-          useParameterNames = true,
-        },
-        reborrowHints = true,
-      },
     },
   },
 }

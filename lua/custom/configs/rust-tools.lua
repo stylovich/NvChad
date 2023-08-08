@@ -1,11 +1,36 @@
 local M = {}
 
+local on_attach = require("plugins.configs.lspconfig").on_attach
+local capabilities = require("plugins.configs.lspconfig").capabilities
+local flags = require("plugins.configs.lspconfig").flags
+local handlers = require("plugins.configs.lspconfig").handlers
 local extension_path = vim.fn.stdpath "data" .. "/dapinstall/codelldb/extension/"
 local codelldb_path = extension_path .. "adapter/codelldb"
 local liblldb_path = extension_path .. "lldb/lib/liblldb.so"
 
 function M.setup()
   local opts = {
+    server = {
+      on_attach = on_attach,
+      capabilities = capabilities,
+      flags = flags,
+      handlers = handlers,
+      settings = {
+        ["rust-analyzer"] = {
+          checkOnSave = {
+            command = "clippy",
+          },
+          inlayHints = {
+            closureReturnTypeHints = true,
+            lifetimeElisionHints = {
+              useParameterNames = true,
+            },
+            reborrowHints = true,
+          },
+        },
+      },
+    },
+
     tools = {
       autoSetHints = true,
       executor = require("rust-tools/executors").termopen,

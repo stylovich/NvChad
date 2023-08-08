@@ -50,11 +50,11 @@ M.treesitter = {
 
 M.mason = {
   ensure_installed = {
-    -- lua stuff
+    -- lua
     "lua-language-server",
     "stylua",
 
-    -- python stuff
+    -- python
     "black",
 
     -- shell dev
@@ -62,10 +62,13 @@ M.mason = {
     "shellcheck",
     "bash-language-server",
 
-    -- web dev stuff
+    -- web dev
     "css-lsp",
     "html-lsp",
     "typescript-language-server",
+
+    -- rust
+    "rust-analyzer",
 
     -- formatting
     "prettierd",

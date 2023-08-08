@@ -244,25 +244,53 @@ local plugins = {
   },
 
   {
+    "rust-lang/rust.vim", -- Rust syntax highlighting
+    ft = "rust",
+    init = function()
+      vim.g.rustfmt_autosave = 1
+    end,
+  },
+
+  {
+    "hrsh7th/nvim-cmp", -- Autocompletion plugin
+    opts = function()
+      local M = require "plugins.configs.cmp"
+      table.insert(M.sources, { name = "crates" })
+      return M
+    end,
+  },
+
+  {
     "simrat39/rust-tools.nvim", -- Rust tools
-    after = "nvim-lspconfig",
+    -- after = "nvim-lspconfig",
     requires = "nvim-lua/plenary.nvim",
     ft = "rust", -- for rust only
+    dependencies = "neovim/nvim-lspconfig",
     config = function()
       require("custom.configs.rust-tools").setup()
     end,
   },
 
   {
-    "mfussenegger/nvim-dap", -- Debugger client
-    event = "BufRead",
-    enabled = false,
+    "saecki/crates.nvim", -- Rust crates explorer
+    ft = "rust",
+    config = function(_, opts)
+      local crates = require "crates"
+      crates.setup(opts)
+      crates.show()
+    end,
+  },
+
+  {
+    "mfussenegger/nvim-dap", -- Debugger client (apt-get install lldb)
+    -- event = "BufRead",
+    enabled = true,
   },
 
   {
     "microsoft/vscode-js-debug", -- Debugger for JavaScript and TypeScript
     build = "npm install --legacy-peer-deps && npx gulp vsDebugServerBundle && mv dist out",
-    enabled = false,
+    enabled = true,
     config = function()
       require "custom.configs.dap"
     end,
@@ -270,7 +298,7 @@ local plugins = {
 
   {
     "rcarriga/nvim-dap-ui", -- UI for DAP
-    enabled = false,
+    enabled = true,
     requires = {
       "mfussenegger/nvim-dap",
     },
@@ -288,7 +316,7 @@ local plugins = {
     config = function()
       require "custom.configs.telescope-dap"
     end,
-  }
+  },
 }
 
 return plugins

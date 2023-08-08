@@ -28,7 +28,6 @@ map("x", "<C-Down>", "<Plug>GoVSDDown", {})
 map("x", "<C-Up>", "<Plug>GoVSDUp", {})
 -- map("x", "<C-Right>", "<Plug>GoVSDRight", {})
 
-
 M.general = {
   x = {
     ["aa"] = {
@@ -208,6 +207,35 @@ M.copilot = {
       "<cmd> Copilot enable<CR>",
       "Copilot enable",
       opts = { noremap = true, nowait = true, silent = false },
+    },
+  },
+}
+M.dap = {
+  n = {
+    ["<leader>db"] = {
+      "<cmd> DapToggleBreakpoint <CR>",
+      "  Toggle debuger breakpoint",
+      opts = { noremap = true, nowait = true, silent = true },
+    },
+    ["<leader>dus"] = {
+      function()
+        local widgets = require "dap.ui.widgets"
+        local sidebar = widgets.sidebar(widgets.scopes)
+        sidebar.open()
+      end,
+      "  Open debuger scopes",
+      opts = { noremap = true, nowait = true, silent = true },
+    },
+  },
+}
+M.crates = {
+  n = {
+    ["<leader>rcu"] = {
+     function ()
+      require("crates").update_all_crates()
+     end,
+      "  Update all Crates",
+      opts = { noremap = true, nowait = true, silent = true },
     },
   },
 }
