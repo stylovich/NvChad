@@ -5,7 +5,6 @@ local codelldb_path = extension_path .. "adapter/codelldb"
 local liblldb_path = extension_path .. "lldb/lib/liblldb.so"
 
 function M.setup()
-  local lspconfig = require "custom.plugins.lspconfig"
   local opts = {
     tools = {
       autoSetHints = true,
@@ -25,26 +24,6 @@ function M.setup()
       hover_actions = {
         border = "single",
         auto_focus = false,
-      },
-    },
-    server = {
-      on_attach = lspconfig.on_attach,
-      capabilities = lspconfig.capabilities,
-      flags = lspconfig.flags,
-      handlers = lspconfig.handlers,
-      settings = {
-        ["rust-analyzer"] = {
-          checkOnSave = {
-            command = "clippy",
-          },
-          inlayHints = {
-            closureReturnTypeHints = true,
-            lifetimeElisionHints = {
-              useParameterNames = true,
-            },
-            reborrowHints = true,
-          },
-        },
       },
     },
     dap = {
