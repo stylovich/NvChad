@@ -231,13 +231,31 @@ M.dap = {
 M.crates = {
   n = {
     ["<leader>rcu"] = {
-     function ()
-      require("crates").update_all_crates()
-     end,
+      function()
+        require("crates").update_all_crates()
+      end,
       "  Update all Crates",
       opts = { noremap = true, nowait = true, silent = true },
     },
   },
 }
-
+-- rust-tools
+M.rust_tools = {
+  n = {
+    ["<leader>rca"] = {
+      function()
+        require("rust-tools").hover_actions.hover_actions()
+      end,
+      "  Show Hover Actions",
+      opts = { noremap = true, nowait = true, silent = true },
+    },
+    ["<leader>rcg"] = {
+      function()
+        require("rust-tools").code_action_group.code_action_group()
+      end,
+      "  Show Code Action Group",
+      opts = { noremap = true, nowait = true, silent = true },
+    },
+  },
+}
 return M
