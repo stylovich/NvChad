@@ -282,7 +282,7 @@ local plugins = {
   },
 
   {
-    "mfussenegger/nvim-dap", -- Debugger client (apt-get install lldb)
+    "mfussenegger/nvim-dap", -- Debugger client (apt-get install lldb - apt install lldb-11) -> sudo ln -s /usr/bin/lldb-vscode-11 /usr/bin/lldb-vscode
     -- event = "BufRead",
     enabled = true,
   },

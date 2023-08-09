@@ -239,7 +239,6 @@ M.crates = {
     },
   },
 }
--- rust-tools
 M.rust_tools = {
   n = {
     ["<leader>rca"] = {
