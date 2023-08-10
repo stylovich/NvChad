@@ -32,5 +32,5 @@ lspconfig.eslint.setup {
 -- Disable virtual_text since it's redundant due to lsp_lines.
 vim.diagnostic.config {
   virtual_text = false,
-  virtual_lines = false, -- instead use <leader>of in line to get diagnostic
+  virtual_lines = false, -- instead use ctrl+x in line to get diagnostic
 }

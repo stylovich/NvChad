@@ -288,6 +288,13 @@ local plugins = {
   },
 
   {
+    "mxsdev/nvim-dap-vscode-js",
+    requires = {
+      "mfussenegger/nvim-dap",
+    },
+  },
+
+  {
     "microsoft/vscode-js-debug", -- Debugger for JavaScript and TypeScript
     build = "npm install --legacy-peer-deps && npx gulp vsDebugServerBundle && mv dist out",
     enabled = true,
