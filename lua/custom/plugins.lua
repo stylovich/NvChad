@@ -83,7 +83,6 @@ local plugins = {
   {
     "nvim-treesitter/nvim-treesitter-textobjects", -- Treesitter textobjects
     init = require("core.utils").lazy_load "nvim-treesitter-textobjects",
-    -- after = "nvim-treesitter/nvim-treesitter",
     dependencies = "nvim-treesitter/nvim-treesitter",
     config = function()
       require "custom.configs.treesitter-textobjects"
@@ -216,11 +215,8 @@ local plugins = {
 
   {
     "nvim-pack/nvim-spectre", -- Search and replace
-    after = "base46",
     event = "BufRead",
-    requires = {
-      { "nvim-lua/plenary.nvim" },
-    },
+    dependencies = "nvim-lua/plenary.nvim",
     config = function()
       require "custom.configs.spectre"
     end,
@@ -233,11 +229,8 @@ local plugins = {
 
   {
     "AckslD/nvim-neoclip.lua", -- Clipboard manager
-    after = "telescope.nvim",
     event = "BufRead",
-    requires = {
-      { "nvim-telescope/telescope.nvim" },
-    },
+    dependencies = "nvim-telescope/telescope.nvim",
     config = function()
       require "custom.configs.neoclip"
     end,
@@ -262,8 +255,7 @@ local plugins = {
 
   {
     "simrat39/rust-tools.nvim", -- Rust tools
-    -- after = "nvim-lspconfig",
-    requires = "nvim-lua/plenary.nvim",
+    dependencies = "nvim-lua/plenary.nvim",
     ft = "rust", -- for rust only
     dependencies = "neovim/nvim-lspconfig",
     config = function()
@@ -282,16 +274,15 @@ local plugins = {
   },
 
   {
-    "mfussenegger/nvim-dap", -- Debugger client (apt-get install lldb - apt install lldb-11) -> sudo ln -s /usr/bin/lldb-vscode-11 /usr/bin/lldb-vscode
-    -- event = "BufRead",
-    enabled = true,
+    "mfussenegger/nvim-dap", -- Debugger client
+    -- apt-get install lldb
+    -- apt install lldb-11
+    -- sudo ln -s /usr/bin/lldb-vscode-11 /usr/bin/lldb-vscode
   },
 
   {
     "mxsdev/nvim-dap-vscode-js",
-    requires = {
-      "mfussenegger/nvim-dap",
-    },
+    dependencies = "mfussenegger/nvim-dap",
   },
 
   {
@@ -306,9 +297,7 @@ local plugins = {
   {
     "rcarriga/nvim-dap-ui", -- UI for DAP
     enabled = true,
-    requires = {
-      "mfussenegger/nvim-dap",
-    },
+    dependencies = "mfussenegger/nvim-dap",
     config = function()
       require "custom.configs.dap-ui"
     end,
@@ -316,10 +305,7 @@ local plugins = {
 
   {
     "nvim-telescope/telescope-dap.nvim", -- Telescope integration for DAP
-    after = "telescope.nvim",
-    requires = {
-      { "nvim-telescope/telescope.nvim" },
-    },
+    dependencies = { "nvim-telescope/telescope.nvim" },
     config = function()
       require "custom.configs.telescope-dap"
     end,

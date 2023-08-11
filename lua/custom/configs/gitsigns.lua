@@ -1,4 +1,3 @@
-local git_icon = ''
 local M = {}
 
 M.gitsigns = {
@@ -18,7 +17,7 @@ M.gitsigns = {
     delay = 1000,
     ignore_whitespace = false,
   },
-  current_line_blame_formatter = ' ' .. git_icon .. ' <author>, <author_time:%d/%m/%Y %H:%M> • <summary>',
+  current_line_blame_formatter = '    <author>, <author_time:%d/%m/%Y %H:%M> • <summary>',
   sign_priority = 6,
   update_debounce = 100,
   status_formatter = nil, -- Use default
