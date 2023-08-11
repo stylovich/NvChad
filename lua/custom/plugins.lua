@@ -97,7 +97,7 @@ local plugins = {
 
   {
     "NvChad/nvim-colorizer.lua", -- Colorizer for hex codes
-    enabled = false,
+    enabled = true,
   },
 
   {
