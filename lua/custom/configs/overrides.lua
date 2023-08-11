@@ -70,6 +70,9 @@ M.mason = {
     -- rust
     "rust-analyzer",
 
+    -- sql
+    "sqlfluff",
+
     -- formatting
     "prettierd",
     "eslint-lsp",
@@ -77,6 +80,8 @@ M.mason = {
     "fixjson",
     "write-good",
     "xmlformatter",
+    "stylelint",
+    "markdownlint"
   },
 }
 
