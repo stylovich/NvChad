@@ -16,8 +16,8 @@ M.ui = {
   },
 }
 
-M.plugins = "custom.plugins"
--- M.plugins = "custom.plugins-light"
+-- M.plugins = "custom.plugins"
+M.plugins = "custom.plugins-light"
 
 -- check core.mappings for table structure
 M.mappings = require "custom.mappings"
