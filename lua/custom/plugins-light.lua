@@ -103,14 +103,6 @@ local plugins = {
   },
 
   {
-    "ggandor/lightspeed.nvim", -- Jump to any word in the buffer with few keystrokes
-    event = "BufRead",
-    config = function()
-      require "custom.configs.lightspeed"
-    end,
-  },
-
-  {
     "booperlv/nvim-gomove", -- Move/Duplicate lines and blocks of code around
     event = "BufRead",
     config = function()
