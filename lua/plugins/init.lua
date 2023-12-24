@@ -238,7 +238,6 @@ local default_plugins = {
       "nvim-lua/plenary.nvim",
       "debugloop/telescope-undo.nvim",
       "nvim-treesitter/nvim-treesitter",
-      { "nvim-telescope/telescope-fzf-native.nvim", build = "make" }
     },
     cmd = "Telescope",
     init = function()
