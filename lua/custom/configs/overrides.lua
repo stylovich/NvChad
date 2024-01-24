@@ -43,9 +43,6 @@ M.treesitter = {
       node_decremental = "grm",
     },
   },
-  context_commentstring = {
-    enable = true,
-  },
 }
 
 M.mason = {
