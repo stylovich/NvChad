@@ -60,7 +60,6 @@ M.mason = {
     -- shell dev
     "shfmt",
     "shellcheck",
-    "bash-language-server",
 
     -- web dev
     "css-lsp",
@@ -70,16 +69,12 @@ M.mason = {
     -- rust
     "rust-analyzer",
 
-    -- sql
-    "sqlfluff",
-
     -- formatting
     "prettierd",
     "eslint-lsp",
     "eslint_d",
     "fixjson",
     "write-good",
-    "xmlformatter",
     "stylelint",
     "markdownlint"
   },

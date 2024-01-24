@@ -29,17 +29,12 @@ local plugins = {
 
   {
     "neovim/nvim-lspconfig", -- Collection of configurations for built-in LSP client
-    dependencies = {
-      {
-        "jose-elias-alvarez/null-ls.nvim", -- Run linters and fixers against your code
-        config = function()
-          require "custom.configs.null-ls"
-        end,
-      },
-    },
     config = function()
       require "plugins.configs.lspconfig"
-      require "custom.configs.lspconfig"
+      vim.diagnostic.config {
+        virtual_text = false,
+        virtual_lines = false, -- instead use ctrl+x in line to get diagnostic
+      }
     end,
   },
 
@@ -62,11 +57,6 @@ local plugins = {
   },
 
   {
-    "williamboman/mason.nvim", -- Plugin manager
-    opts = overrides.mason,
-  },
-
-  {
     "dstein64/vim-startuptime", -- Measure startup time
     cmd = "StartupTime",
   },
@@ -83,6 +73,7 @@ local plugins = {
   {
     "nvim-treesitter/nvim-treesitter-textobjects", -- Treesitter textobjects
     init = require("core.utils").lazy_load "nvim-treesitter-textobjects",
+    -- after = "nvim-treesitter/nvim-treesitter",
     dependencies = "nvim-treesitter/nvim-treesitter",
     config = function()
       require "custom.configs.treesitter-textobjects"
@@ -121,41 +112,11 @@ local plugins = {
     end,
   },
 
-  -- {
-  --   "mg979/vim-visual-multi", -- Multiple cursors in visual mode
-  --   lazy = false,
-  -- },
-
-  {
-    "folke/todo-comments.nvim", -- Highlight TODO comments
-    cmd = { "TodoTrouble", "TodoTelescope" },
-    event = "BufReadPost",
-    opts = overrides.todo_comments,
-    config = function()
-      require "custom.configs.todo-comments"
-    end,
-  },
-
   {
     "sindrets/diffview.nvim", -- Diffview for git diffs
     event = "BufRead",
     config = function()
       require "custom.configs.diffview"
-    end,
-  },
-
-  {
-    "kevinhwang91/nvim-bqf", -- Better quickfix window
-    event = "BufRead",
-    config = function()
-      require "custom.configs.bqf"
-    end,
-  },
-
-  {
-    "junegunn/fzf",
-    run = function()
-      vim.fn["fzf#install"]()
     end,
   },
 
@@ -198,14 +159,6 @@ local plugins = {
   },
 
   {
-    "chentoast/marks.nvim", -- Marks in the sign column and jump to them
-    event = "BufRead",
-    config = function()
-      require "custom.configs.marks"
-    end,
-  },
-
-  {
     "max397574/better-escape.nvim", -- Better escape
     event = "InsertCharPre",
     config = function()
@@ -214,33 +167,14 @@ local plugins = {
   },
 
   {
-    "nvim-pack/nvim-spectre", -- Search and replace
-    event = "BufRead",
-    dependencies = "nvim-lua/plenary.nvim",
-    config = function()
-      require "custom.configs.spectre"
-    end,
-  },
-
-  {
-    "Vonr/align.nvim", -- Align text by a given pattern
-    event = "BufRead",
-  },
-
-  {
     "AckslD/nvim-neoclip.lua", -- Clipboard manager
+    after = "telescope.nvim",
     event = "BufRead",
-    dependencies = "nvim-telescope/telescope.nvim",
+    requires = {
+      { "nvim-telescope/telescope.nvim" },
+    },
     config = function()
       require "custom.configs.neoclip"
-    end,
-  },
-
-  {
-    "rust-lang/rust.vim", -- Rust syntax highlighting
-    ft = "rust",
-    init = function()
-      vim.g.rustfmt_autosave = 1
     end,
   },
 
@@ -250,64 +184,6 @@ local plugins = {
       local M = require "plugins.configs.cmp"
       table.insert(M.sources, { name = "crates" })
       return M
-    end,
-  },
-
-  {
-    "simrat39/rust-tools.nvim", -- Rust tools
-    dependencies = "nvim-lua/plenary.nvim",
-    ft = "rust", -- for rust only
-    dependencies = "neovim/nvim-lspconfig",
-    config = function()
-      require("custom.configs.rust-tools").setup()
-    end,
-  },
-
-  {
-    "saecki/crates.nvim", -- Rust crates explorer
-    ft = "rust",
-    config = function(_, opts)
-      local crates = require "crates"
-      crates.setup(opts)
-      crates.show()
-    end,
-  },
-
-  {
-    "mfussenegger/nvim-dap", -- Debugger client
-    -- apt-get install lldb
-    -- apt install lldb-11
-    -- sudo ln -s /usr/bin/lldb-vscode-11 /usr/bin/lldb-vscode
-  },
-
-  {
-    "mxsdev/nvim-dap-vscode-js",
-    dependencies = "mfussenegger/nvim-dap",
-  },
-
-  {
-    "microsoft/vscode-js-debug", -- Debugger for JavaScript and TypeScript
-    build = "npm install --legacy-peer-deps && npx gulp vsDebugServerBundle && mv dist out",
-    enabled = true,
-    config = function()
-      require "custom.configs.dap"
-    end,
-  },
-
-  {
-    "rcarriga/nvim-dap-ui", -- UI for DAP
-    enabled = true,
-    dependencies = "mfussenegger/nvim-dap",
-    config = function()
-      require "custom.configs.dap-ui"
-    end,
-  },
-
-  {
-    "nvim-telescope/telescope-dap.nvim", -- Telescope integration for DAP
-    dependencies = { "nvim-telescope/telescope.nvim" },
-    config = function()
-      require "custom.configs.telescope-dap"
     end,
   },
 }
